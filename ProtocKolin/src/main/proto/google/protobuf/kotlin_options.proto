@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package google.protobuf;
+
+import "google/protobuf/descriptor.proto";
+
+// Kotlin-specific option for custom Kotlin package
+extend google.protobuf.FileOptions {
+  string kotlin_package = 2101;
+}

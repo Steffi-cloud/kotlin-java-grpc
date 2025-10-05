@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.audit";
+option java_outer_classname = "AuditProto";
+
+package audit;
+
+// The gRPC service
+service AuditService {
+  // Log an audit event
+  rpc LogAuditEvent (AuditRequest) returns (AuditResponse);
+}
+
+// Message to request an audit logging
+message AuditRequest {
+  string userId = 1;
+  string action = 2;
+  string resource = 3;
+  string timestamp = 4;
+  string details = 5;
+}
+
+// Response message
+message AuditResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+
+
